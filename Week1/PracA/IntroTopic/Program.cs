@@ -1,4 +1,4 @@
-﻿namespace Topic1A
+﻿namespace IntroTopic
 {
     class Program
     {

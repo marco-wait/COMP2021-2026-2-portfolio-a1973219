@@ -1,4 +1,4 @@
-﻿namespace Topic2B
+﻿namespace BankAccount
 {
     public class BankAccount
     {
