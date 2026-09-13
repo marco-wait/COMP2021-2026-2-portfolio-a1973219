@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Week3/" />
+  <Folder Name="/Week3/PracA/">
+    <Project Path="Week3/PracA/BankAccount.Test/BankAccount.Test.csproj" />
+    <Project Path="Week3/PracA/BankAccount/BankAccount.csproj" />
+  </Folder>
+</Solution>
