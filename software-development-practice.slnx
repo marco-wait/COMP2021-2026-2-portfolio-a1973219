@@ -4,4 +4,7 @@
     <Project Path="Week3/PracA/BankAccount.Test/BankAccount.Test.csproj" />
     <Project Path="Week3/PracA/BankAccount/BankAccount.csproj" />
   </Folder>
+  <Folder Name="/Week3/PracB/">
+    <Project Path="Week3/PracB/Employee/Employee.csproj" />
+  </Folder>
 </Solution>
