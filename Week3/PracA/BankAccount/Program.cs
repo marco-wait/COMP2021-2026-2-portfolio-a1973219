@@ -31,6 +31,13 @@
         }
         Balance -= amount;
     }
+
+    public virtual void DisplayAccountInfo()
+    {
+        Console.WriteLine("Account: BankAccount"); // child classes override this accordingly
+        Console.WriteLine($"Owner: {Owner}");
+        Console.WriteLine($"Balance: {Balance}");
+    }
 }
 
 public class SavingsAccount : BankAccount
@@ -45,6 +52,14 @@ public class SavingsAccount : BankAccount
     {
         Balance *= InterestRate / 100 + 1; // converts interest rate value into a useful form, then multiplies account balance
     }
+
+    public override void DisplayAccountInfo()
+    {
+        Console.WriteLine("Account: SavingsAccount");
+        Console.WriteLine($"Owner: {Owner}");
+        Console.WriteLine($"Balance: {Balance}");
+        Console.WriteLine($"Interest rate: {InterestRate}%");
+    }
 }
 
 public class CheckingAccount : BankAccount
@@ -58,5 +73,13 @@ public class CheckingAccount : BankAccount
     public override void Withdraw(decimal amount)
     {
         base.Withdraw(amount + TransactionFee);
+    }
+
+    public override void DisplayAccountInfo()
+    {
+        Console.WriteLine("Account: SavingsAccount");
+        Console.WriteLine($"Owner: {Owner}");
+        Console.WriteLine($"Balance: {Balance}");
+        Console.WriteLine($"Transaction Fee: ${TransactionFee:F2}");
     }
 }
