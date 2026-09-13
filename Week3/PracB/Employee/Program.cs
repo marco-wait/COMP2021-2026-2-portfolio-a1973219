@@ -2,7 +2,7 @@
 {
     public abstract class Employee
     {
-        const decimal TaxRate = (decimal)0.2;
+        public const decimal TaxRate = (decimal)0.2;
 
         public string Name { get; set; }
         public Employee(string name) // constructor
@@ -10,7 +10,7 @@
             Name = name;
         }
 
-        protected abstract decimal CalculatePay();
+        public abstract decimal CalculatePay();
     }
 
     interface IReportable
@@ -20,15 +20,13 @@
 
     public class FullTimeEmployee : Employee, IReportable
     {
-        const decimal TaxRate = (decimal)0.2;
-
         public decimal AnnualSalary { get; set; }
         public FullTimeEmployee(string name, decimal annual_salary) : base(name)
         {
             AnnualSalary = annual_salary;
         }
 
-        protected override decimal CalculatePay()
+        public override decimal CalculatePay()
         {
             decimal Tax = TaxRate * AnnualSalary;
             return AnnualSalary - Tax;
@@ -43,8 +41,6 @@
 
     public class Contractor : Employee, IReportable
     {
-        const decimal TaxRate = (decimal)0.2;
-
         public decimal Rate { get; set; }
         public decimal Hours { get; set; }
         public Contractor(string name, decimal rate, decimal hours) : base(name)
@@ -53,7 +49,7 @@
             Hours = hours;
         }
 
-        protected override decimal CalculatePay()
+        public override decimal CalculatePay()
         {
             decimal Tax = TaxRate * Rate * Hours;
             return Rate * Hours - Tax;
@@ -74,6 +70,15 @@
             Contractor employee_2 = new("Bob", 25, 400);
             Console.WriteLine(employee_1.GenerateReport());
             Console.WriteLine(employee_2.GenerateReport());
+
+            List<Employee> employees = [employee_1, employee_2];
+
+            foreach (Employee employee in employees)
+            {
+                decimal Pay = employee.CalculatePay() / (1 - Employee.TaxRate);
+                decimal Tax = Pay * Employee.TaxRate;
+                Console.WriteLine($"{employee.Name}: Pay {Pay:C0}. Tax {Tax:C0}");
+            }
         }
     }
 }
