@@ -8,4 +8,8 @@
     <Project Path="Week3/PracB/Employee.Test/Employee.Test.csproj" />
     <Project Path="Week3/PracB/Employee/Employee.csproj" />
   </Folder>
+  <Folder Name="/Week4/" />
+  <Folder Name="/Week4/PracA/">
+    <Project Path="Week4/PracA/BrokenProgram/BrokenProgram.csproj" />
+  </Folder>
 </Solution>
