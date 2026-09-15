@@ -63,6 +63,14 @@
 
     class Program
     {
+        public static void DisplayAccounts(SortedSet<BankAccount> accounts)
+        {
+            foreach (BankAccount account in accounts)
+            {
+                Console.WriteLine(account.ToString());
+            }
+        }
+
         static void Main(string[] args)
         {
             BankAccount account1 = new("Alice", 40);
@@ -77,6 +85,11 @@
             BankAccount account10 = new("John", 54);
 
             var sortedBankSet = new SortedSet<BankAccount>(new BankComparer()) {account1, account2, account3, account4, account5, account6, account7, account8, account9, account10};
+            DisplayAccounts(sortedBankSet);
+            sortedBankSet.Add(new BankAccount("Mr. Monopoly", 999999999));
+            DisplayAccounts(sortedBankSet);
+            sortedBankSet.Add(new BankAccount("Alice", 40));
+            DisplayAccounts(sortedBankSet);
         }
     }
 }
