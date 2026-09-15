@@ -48,6 +48,19 @@
         }
     }
 
+    public class BankComparer : IComparer<BankAccount>
+    {
+        public int Compare(BankAccount x, BankAccount y)
+        {
+            if (x.Balance == y.Balance)
+            {
+                return string.Compare(x.Owner, y.Owner);
+            }
+
+            return decimal.Compare(x.Balance, y.Balance);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -63,7 +76,7 @@
             BankAccount account9 = new("Imogen", 100);
             BankAccount account10 = new("John", 54);
 
-            var sortedBankSet = new SortedSet<BankAccount> {account1, account2, account3, account4, account5, account6, account7, account8, account9, account10};
+            var sortedBankSet = new SortedSet<BankAccount>(new BankComparer()) {account1, account2, account3, account4, account5, account6, account7, account8, account9, account10};
         }
     }
 }
