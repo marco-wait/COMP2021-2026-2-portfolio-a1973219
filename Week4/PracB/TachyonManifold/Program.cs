@@ -8,16 +8,15 @@ using System.Text;
 public static class Program
 {
 
-    //This is a singleline comment.
-    //TODO: Change hardcoded string for the input file to one on your PC.
+    // String points to file on PC containing relevant input.
     public static string FileToRead { get; set; } = "C:/Users/marco/Documents/software-development-practice/Week4/PracB/TachyonManifold/Example.txt";
 
     /// <summary>
-    /// This method processes the start of the tachyon manifold
+    /// This method processes the start of the tachyon manifold.
     /// <example>
     /// For example:
     /// <code>
-    /// ProcessStart(0, 0, taychonGrid);
+    /// ProcessStart(0, 0, tachyonGrid);
     /// </code>
     /// results in <c>'|'</c>being added to the grid point (0,1)
     /// </example>
@@ -34,10 +33,15 @@ public static class Program
         tachyonGrid[posY + 1] = line;
     }
 
-    /*
-    This is a multiline comment
-    TODO: ProcessSplitter should return an int to add to the total, but it currently returns nothing.
-    */
+    /// <summary>
+    /// If the space above the given position in the grid contains a beam, simulates splitting the beam to either side.
+    /// </summary>
+    /// <returns>
+    /// 1 if a split took place, otherwise 0.
+    /// </returns>
+    /// <param name="posX"></param>
+    /// <param name="posY"></param>
+    /// <param name="tachyonGrid"></param>
     public static int processSplitter(int posX, int posY, List<string> tachyonGrid)
     {
         int count = 0;
@@ -49,13 +53,13 @@ public static class Program
             sb[posX + 1] = '|';
             line = sb.ToString();
             tachyonGrid[posY] = line;
-            count++;
+            count = 1;
         }
         return count;
     }
 
     /// <summary>
-    /// 
+    /// If the space above the given position in the grid contains a beam, adds a new segment to that beam.
     /// </summary>
     /// <param name="posX"></param>
     /// <param name="posY"></param>
