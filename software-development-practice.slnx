@@ -15,4 +15,8 @@
   <Folder Name="/Week4/PracB/">
     <Project Path="Week4/PracB/TachyonManifold/TachyonManifold.csproj" />
   </Folder>
+  <Folder Name="/Week7/" />
+  <Folder Name="/Week7/PracA/">
+    <Project Path="Week7/PracA/Leaderboard/Leaderboard.csproj" />
+  </Folder>
 </Solution>
