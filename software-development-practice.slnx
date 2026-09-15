@@ -17,6 +17,7 @@
   </Folder>
   <Folder Name="/Week7/" />
   <Folder Name="/Week7/PracA/">
+    <Project Path="Week7/PracA/BankComparer/BankComparer.csproj" />
     <Project Path="Week7/PracA/Leaderboard/Leaderboard.csproj" />
   </Folder>
 </Solution>
