@@ -10,7 +10,7 @@ public static class Program
 
     //This is a singleline comment.
     //TODO: Change hardcoded string for the input file to one on your PC.
-    public static string FileToRead { get; set; } = "/home/MarkTheMenace/workspace/portfolio/Topic4B/Example.txt";
+    public static string FileToRead { get; set; } = "C:/Users/marco/Documents/software-development-practice/Week4/PracB/TachyonManifold/Example.txt";
 
     /// <summary>
     /// This method processes the start of the tachyon manifold
@@ -38,8 +38,9 @@ public static class Program
     This is a multiline comment
     TODO: ProcessSplitter should return an int to add to the total, but it currently returns nothing.
     */
-    public static void processSplitter(int posX, int posY, List<string> tachyonGrid)
+    public static int processSplitter(int posX, int posY, List<string> tachyonGrid)
     {
+        int count = 0;
         string line = tachyonGrid[posY];
         StringBuilder sb = new StringBuilder(line);
         if (tachyonGrid[posY - 1][posX] == '|')
@@ -48,7 +49,9 @@ public static class Program
             sb[posX + 1] = '|';
             line = sb.ToString();
             tachyonGrid[posY] = line;
+            count++;
         }
+        return count;
     }
 
     /// <summary>
@@ -71,7 +74,6 @@ public static class Program
 
     public static void Main(string[] args)
     {
-      
         var sr = new StreamReader(FileToRead);
         string srText = sr.ReadToEnd();
         int totalCount = 0;
@@ -97,7 +99,7 @@ public static class Program
                 }
                 else if (character == '^')
                 {
-                    processSplitter(posX, posY, tachyonGrid);
+                    totalCount += processSplitter(posX, posY, tachyonGrid);
                 }
                 else if (posY != 0)
                 {
