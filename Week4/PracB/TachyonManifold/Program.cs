@@ -1,7 +1,7 @@
-﻿namespace AdventDay7;
+﻿using System.Text;
 
-using System.IO.Pipelines;
-using System.Text;
+namespace TachyonManifold;
+
 /// <summary>
 /// Class <c>Program</c> contains the magical tachyon manifold.
 /// </summary>
@@ -24,10 +24,10 @@ public static class Program
     /// <param name="posX"></param>
     /// <param name="posY"></param>
     /// <param name="tachyonGrid"></param>
-    public static void processStart(int posX, int posY, List<string> tachyonGrid)
+    public static void ProcessStart(int posX, int posY, List<string> tachyonGrid)
     {
         string line = tachyonGrid[posY + 1];
-        StringBuilder sb = new StringBuilder(line);
+        StringBuilder sb = new(line);
         sb[posX] = '|';
         line = sb.ToString();
         tachyonGrid[posY + 1] = line;
@@ -42,11 +42,11 @@ public static class Program
     /// <param name="posX"></param>
     /// <param name="posY"></param>
     /// <param name="tachyonGrid"></param>
-    public static int processSplitter(int posX, int posY, List<string> tachyonGrid)
+    public static int ProcessSplitter(int posX, int posY, List<string> tachyonGrid)
     {
         int count = 0;
         string line = tachyonGrid[posY];
-        StringBuilder sb = new StringBuilder(line);
+        StringBuilder sb = new(line);
         if (tachyonGrid[posY - 1][posX] == '|')
         {
             sb[posX - 1] = '|';
@@ -64,7 +64,7 @@ public static class Program
     /// <param name="posX"></param>
     /// <param name="posY"></param>
     /// <param name="tachyonGrid"></param>
-    public static void processEmpty(int posX, int posY, List<string> tachyonGrid)
+    public static void ProcessEmpty(int posX, int posY, List<string> tachyonGrid)
     {
         string line = tachyonGrid[posY];
         StringBuilder sb = new StringBuilder(line);
@@ -99,15 +99,15 @@ public static class Program
             {
                 if (character == 'S')
                 {
-                    processStart(posX, posY, tachyonGrid);
+                    ProcessStart(posX, posY, tachyonGrid);
                 }
                 else if (character == '^')
                 {
-                    totalCount += processSplitter(posX, posY, tachyonGrid);
+                    totalCount += ProcessSplitter(posX, posY, tachyonGrid);
                 }
                 else if (posY != 0)
                 {
-                    processEmpty(posX, posY, tachyonGrid);
+                    ProcessEmpty(posX, posY, tachyonGrid);
                 }
             }
         }
