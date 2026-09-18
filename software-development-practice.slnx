@@ -24,4 +24,7 @@
     <Project Path="Week7/PracA/BankComparer/BankComparer.csproj" />
     <Project Path="Week7/PracA/Leaderboard/Leaderboard.csproj" />
   </Folder>
+  <Folder Name="/Week7/PracB/">
+    <Project Path="Week7/PracB/PlayerRankings/PlayerRankings.csproj" />
+  </Folder>
 </Solution>
