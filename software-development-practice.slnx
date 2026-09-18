@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Week1/" />
+  <Folder Name="/Week1/PracA/">
+    <Project Path="Week1/PracA/IntroTopic/IntroTopic.csproj" />
+  </Folder>
   <Folder Name="/Week3/" />
   <Folder Name="/Week3/PracA/">
     <Project Path="Week3/PracA/BankAccount.Test/BankAccount.Test.csproj" />
